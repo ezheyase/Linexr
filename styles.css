@@ -1,0 +1,38 @@
+:root { --bg-color: #2c001e; --sidebar-bg: #f5f5f5; --terminal-bg: #300a24; --text-color: #fff; --ubuntu-orange: #e95420; --green: #8ae234; --blue: #729fcf; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Ubuntu', sans-serif; background: url('https://assets.ubuntu.com/v1/0b54288d-ubuntu-22.04-lts-wallpaper.jpg') no-repeat center center fixed; background-size: cover; height: 100vh; display: flex; align-items: center; justify-content: center; }
+.main-container { display: flex; width: 95%; height: 90%; background: rgba(0,0,0,0.9); border-radius: 8px; overflow: hidden; box-shadow: 0 20px 50px black; border: 1px solid #444; }
+
+#sidebar { width: 320px; background-color: var(--sidebar-bg); color: #333; padding: 20px; display: flex; flex-direction: column; border-right: 1px solid #555; }
+.sidebar-header { border-bottom: 2px solid var(--ubuntu-orange); padding-bottom: 10px; margin-bottom: 15px; }
+.sidebar-header h2 { color: var(--ubuntu-orange); font-size: 20px; }
+.user-badge { font-size: 12px; background: #333; color: white; padding: 2px 8px; border-radius: 10px; display: inline-block; margin-top: 5px; }
+
+.chapter-display { background: #e0e0e0; padding: 10px; border-radius: 6px; margin-bottom: 15px; }
+#chapter-title { font-size: 13px; font-weight: bold; color: #444; margin-bottom: 5px; text-transform: uppercase; }
+.progress-container { width: 100%; height: 8px; background: #bbb; border-radius: 4px; overflow: hidden; }
+.progress-bar { height: 100%; width: 0%; background: var(--ubuntu-orange); transition: width 0.5s ease; }
+
+.mission-box { background: white; border-left: 5px solid var(--ubuntu-orange); padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.mission-box h3 { font-size: 16px; margin-bottom: 8px; }
+#mission-text { font-size: 14px; line-height: 1.4; }
+
+.controls-box { display: flex; gap: 10px; margin-bottom: 15px; }
+.btn-save { flex: 1; background: #2980b9; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+.btn-reset { flex: 1; background: #c0392b; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+
+.help-box { background: #e8e8e8; padding: 15px; border-radius: 6px; margin-top: auto; }
+.btn-hint { width: 100%; background: #f39c12; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; margin-bottom: 5px; font-weight: bold; }
+.btn-solve { width: 100%; background: #27ae60; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+#hint-display { margin-top: 10px; font-size: 13px; font-style: italic; color: #555; background: #fff; padding: 5px; display: none; border-radius: 4px; border: 1px solid #ddd; }
+
+#terminal-window { flex: 1; display: flex; flex-direction: column; background-color: var(--terminal-bg); }
+.terminal-header { background: #3e3e3e; height: 32px; display: flex; align-items: center; justify-content: center; position: relative; border-bottom: 1px solid #111; }
+.buttons { position: absolute; left: 10px; display: flex; gap: 8px; }
+.buttons span { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.close { background: #e95420; } .minimize { background: #e0e0e0; } .maximize { background: #e0e0e0; }
+.title { color: #aaa; font-size: 13px; font-family: sans-serif; }
+.terminal-body { flex: 1; padding: 15px; font-family: 'Ubuntu Mono', monospace; font-size: 15px; color: var(--text-color); overflow-y: auto; cursor: text; line-height: 1.4; }
+.green-text { color: var(--green); } .blue-text { color: var(--blue); font-weight: bold; }
+.prompt-user { color: var(--green); font-weight: bold; } .prompt-path { color: var(--blue); font-weight: bold; }
+#cmd-input { background: transparent; border: none; color: #fff; font-family: 'Ubuntu Mono', monospace; font-size: 15px; flex: 1; margin-left: 8px; outline: none; }
