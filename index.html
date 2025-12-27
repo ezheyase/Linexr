@@ -3,89 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LINUX HELPER</title>
-    <link rel="icon" href="https://preview.redd.it/created-a-linux-version-of-my-previous-wallpaper-3840-x-2160-v0-en12fj7x5of91.png?width=1080&crop=smart&auto=webp&s=1d581ad3dba201494815fa87a6ac989ddd63dedd">
+    <title>Linux V42 - Scroll Fix</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://w.soundcloud.com/player/api.js"></script>
 </head>
 <body>
 
+    <div id="player-wrapper" style="position: fixed; bottom: 0; right: 0; width: 1px; height: 1px; opacity: 0.01; z-index: -10; pointer-events: none;">
+        <iframe id="sc-widget" 
+                width="100%" 
+                height="166" 
+                scrolling="no" 
+                frameborder="no" 
+                allow="autoplay" 
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/lucas-shearer-913642639/sets/minecraft-soundtrack-disc&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false">
+        </iframe>
+    </div>
+
     <div id="login-layer" class="overlay">
-        <div class="box-login">
-            <h2>LOGIN</h2>
-            <input type="text" id="username" placeholder="user" autocomplete="off">
-            <button class="btn-login" onclick="startSession()">ENTER</button>
+        <div class="glass-card">
+            <h2>AUTHENTIFICATION</h2>
+            <p>Linexr- V6.02 Update</p>
+            <input type="text" id="username" class="login-input" placeholder="User (ex: etudiant)" autocomplete="off">
+            <button class="login-btn" onclick="startSession()">START</button>
         </div>
     </div>
 
     <div id="distro-layer" class="overlay hidden">
-        <h2>SELECT SYSTEM</h2>
+        <h2>CHOISIR SYSTÈME</h2>
         <div class="distro-grid">
-            <div class="card" onclick="boot('ubuntu')" onmouseenter="previewBg('ubuntu')">
+            <div class="d-card" onclick="boot('ubuntu')" onmouseenter="previewBg('ubuntu')">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/UbuntuCoF.svg/2048px-UbuntuCoF.svg.png">
-                <h3>UBUNTU</h3>
+                <h3>Ubuntu</h3>
             </div>
-            <div class="card" onclick="boot('kali')" onmouseenter="previewBg('kali')">
+            <div class="d-card" onclick="boot('kali')" onmouseenter="previewBg('kali')">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJwgMZUJAvAFdnrHOUBRkgT-NwPlmHequy6Q&s">
-                <h3>KALI</h3>
+                <h3>Kali</h3>
             </div>
-            <div class="card" onclick="boot('arch')" onmouseenter="previewBg('arch')">
+            <div class="d-card" onclick="boot('arch')" onmouseenter="previewBg('arch')">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Arch_Linux_%22Crystal%22_icon.svg/2048px-Arch_Linux_%22Crystal%22_icon.svg.png">
-                <h3>ARCH</h3>
+                <h3>Arch</h3>
             </div>
         </div>
     </div>
 
     <div id="app" class="hidden">
-        <aside>
+        <aside id="sidebar">
             <div class="head">
                 <img id="logo" src="">
                 <div>
-                    <h3 id="os-title">LINUX</h3>
-                    <small id="user-display">Guest</small>
+                    <h3 id="os-title">OS</h3>
+                    <small id="user-display">user</small>
                 </div>
             </div>
 
-            <div class="nav-list">
-                <h4>📚 MODULES</h4>
+            <div class="dev-badge">
+                <span>DEVELOPER:</span>
+                <strong>EZHER</strong> <span class="tick"></span>
+            </div>
+
+            <div class="nav-section">
+                <h4>📋 TD LIST</h4>
                 <ul id="td-list"></ul>
             </div>
 
             <div class="mission-panel">
                 <div class="timer">⏱️ <span id="timer">00:00</span></div>
-                <div class="progress-bg"><div id="bar"></div></div>
-                <h4 id="chapter-title">TD1</h4>
+                <div class="progress-track"><div id="bar"></div></div>
+                <h4 id="chapter-title">...</h4>
                 <div class="mission-box">
-                    <strong>🎯 MISSION:</strong>
+                    <strong>🎯 MISSION :</strong>
                     <p id="objective">Chargement...</p>
                 </div>
             </div>
 
-            <div class="actions">
-                <button class="btn save" onclick="saveData()">💾 SAVE</button>
+            <div class="controls">
+                <button class="btn save" onclick="saveData()">💾 SAUVER</button>
                 <div class="btn-row">
-                    <button class="btn hint" onclick="showHint()">💡 HINT</button>
-                    <button class="btn solve" onclick="solve()">🔑 SOLVE</button>
+                    <button class="btn hint" onclick="showHint()">💡 AIDE</button>
+                    <button class="btn solve" onclick="solve()">🔑 SOLUCE</button>
                 </div>
                 <button class="btn reset" onclick="resetAll()">↺ RESET</button>
+                <button class="btn music-btn" onclick="toggleMusic()">🔊 MUSIC</button>
                 <div id="msg"></div>
             </div>
         </aside>
 
-        <main id="terminal" onclick="focusInput()">
+        <main id="term" onclick="focusInput()">
             <div id="terminal-content">
                 <div id="history"></div>
-                
-                <div id="kali-header" class="hidden"></div>
-                
-                <div id="input-row">
+                <div id="kali-header" class="hidden" style="margin-bottom:2px;"></div>
+                <div class="prompt-row">
                     <span id="prompt-text"></span>
-                    <input type="text" id="cmd" autocomplete="off" spellcheck="false">
+                    <input type="text" id="cmd" class="cmd-input" autocomplete="off" spellcheck="false">
                 </div>
             </div>
         </main>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
