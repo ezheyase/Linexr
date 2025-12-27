@@ -103,7 +103,7 @@ function boot(d) {
     document.getElementById('user-display').innerText = user;
 
     writeLine(`Bienvenue sur ${d.toUpperCase()} 22.04 LTS.`);
-    writeLine(`Session ouverte : ${user}`);
+    writeLine(`Developped by Y.Ezher Enjoy;)`);
     writeLine("");
 
     loadProgress();
